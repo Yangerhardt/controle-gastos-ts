@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "homepage": "url",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "server": "lite-server --baseDir=app",
@@ -11,10 +12,10 @@
     "watch": "tsc -w"
   },
   "keywords": [],
-  "author": "",
+  "author": "yangerhardt",
   "license": "ISC",
   "devDependencies": {
-    "concurrently": "^6.0.0",
+    "concurrently": "^6.5.1",
     "lite-server": "^2.6.1",
     "typescript": "^4.8.3"
   }
