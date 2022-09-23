@@ -6,7 +6,11 @@ export class CriaElemento {
   }
 
   public adicionaTransacao(nome: string, valor: number) {
-    this.historico.innerHTML += this.template(nome, valor);
+    if (valor == NaN) {
+      document.querySelector(".erro").innerHTML = "Valor inválido"
+    } else {
+      this.historico.innerHTML += this.template(nome, valor);
+    }
   }
 
   private template(nome: string, valor: number): string {

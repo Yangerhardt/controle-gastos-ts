@@ -3,7 +3,12 @@ export class CriaElemento {
         this.historico = document.querySelector(".insert-transacao");
     }
     adicionaTransacao(nome, valor) {
-        this.historico.innerHTML += this.template(nome, valor);
+        if (valor == NaN) {
+            document.querySelector(".erro").innerHTML = "Valor inválido";
+        }
+        else {
+            this.historico.innerHTML += this.template(nome, valor);
+        }
     }
     template(nome, valor) {
         return `
