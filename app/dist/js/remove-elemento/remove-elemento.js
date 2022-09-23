@@ -14,6 +14,9 @@ export class RemoveElemento {
         this.placeholder.definePlaceholder();
     }
     removerArray(entrada) {
+        entrada.forEach((elemento) => {
+            entrada.splice(elemento.id, 1);
+        });
         entrada.forEach((elemento, index) => {
             elemento.id = index;
         });

@@ -6,14 +6,11 @@ export class CriaElemento {
   }
 
   public adicionaTransacao(nome: string, valor: number) {
-    if (valor == NaN) {
-      document.querySelector(".erro").innerHTML = "Valor inválido"
-    } else {
       this.historico.innerHTML += this.template(nome, valor);
-    }
   }
 
   private template(nome: string, valor: number): string {
+    
     return `
     <div class="transacao-container">
       <button class="deleta-btn">x</button>
