@@ -10,7 +10,6 @@ export class Transacao {
     console.log(transacao);
     console.log(this.transacoes);    
     
-
     return this.transacoes;
   }
 }

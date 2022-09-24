@@ -1,10 +1,10 @@
 import { AtualizarSaldo } from "./atualizar-saldo/atualizar-saldo.js";
 import { CriaElemento } from "./cria-elemento/cria-elemento.js";
-
 import { RemoveElemento } from "./remove-elemento/remove-elemento.js";
 import { Transacao } from "./transacao/transacao.js";
 
-let transacoes: Array<any> = /* JSON.parse(localStorage.getItem("itens")) || */ [];
+let transacoes: Array<any> =
+  /* JSON.parse(localStorage.getItem("itens")) || */ [];
 const form: HTMLElement = document.querySelector(".form");
 let nome: HTMLInputElement = document.querySelector("#nome");
 let valor: HTMLInputElement = document.querySelector("#valor");
@@ -14,13 +14,13 @@ let placeholderHistorico: HTMLElement = document.querySelector(
 const novoElemento = new CriaElemento();
 const transacao = new Transacao();
 const atualizaSaldo = new AtualizarSaldo();
-let id = 0;
+let id = 0, contador = 0
 
-form?.addEventListener("submit", (event) => {
+form.addEventListener("submit", (event) => {
   event.preventDefault();
   placeholderHistorico.innerHTML = "";
 
-  novoElemento.adicionaTransacao(nome.value, parseFloat(valor.value));
+  novoElemento.adicionaTransacao(nome.value, parseFloat(valor.value), contador++);
 
   transacoes = transacao.adicionaNaLista(
     id++,
@@ -33,14 +33,16 @@ form?.addEventListener("submit", (event) => {
 
   // Aqui começa o problema de não conseguir excluir transações além da primeira
 
-  const deletaImagem = document.querySelectorAll(".deleta-btn");
-  const removerElemento = new RemoveElemento();
+  const deletaImagem = document.getElementsByClassName("deleta-btn");
+
+  console.log(deletaImagem);
+
+  /*   const removerElemento = new RemoveElemento();
   deletaImagem[id-1].addEventListener("click", () => {
     removerElemento.removerItem(transacoes)
     if (transacoes.length == 0) {
       id = 0
     }
   }
-  );
-
+  ); */
 });
