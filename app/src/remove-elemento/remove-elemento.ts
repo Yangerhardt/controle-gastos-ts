@@ -30,6 +30,7 @@ export class RemoveElemento {
     entrada.forEach((elemento) => {
       entrada.splice(elemento.id, 1);
     });
+    
 
     entrada.forEach((elemento, index) => {
       elemento.id = index;

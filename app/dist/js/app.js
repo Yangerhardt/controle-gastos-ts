@@ -10,14 +10,11 @@ let placeholderHistorico = document.querySelector("#placeholder-historico");
 const novoElemento = new CriaElemento();
 const transacao = new Transacao();
 const atualizaSaldo = new AtualizarSaldo();
-let id = 0, contador = 0;
+let id = 0;
 form.addEventListener("submit", (event) => {
     event.preventDefault();
     placeholderHistorico.innerHTML = "";
-    if (transacoes.length == 0) {
-        contador = 0;
-    }
-    novoElemento.adicionaTransacao(nome.value, parseFloat(valor.value), contador++);
+    novoElemento.adicionaTransacao(nome.value, parseFloat(valor.value));
     transacoes = transacao.adicionaNaLista(id++, nome.value, parseFloat(valor.value));
     atualizaSaldo.atualiza(transacoes);
     novoElemento.limpaFomrulario(nome, valor);

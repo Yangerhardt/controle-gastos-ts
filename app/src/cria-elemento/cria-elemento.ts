@@ -8,15 +8,14 @@ export class CriaElemento {
   public adicionaTransacao(
     nome: string,
     valor: number,
-    contador: number
   ): string {
-    return (this.historico.innerHTML += this.template(nome, valor, contador));
+    return (this.historico.innerHTML += this.template(nome, valor));
   }
 
-  private template(nome: string, valor: number, contador: number): string {
+  private template(nome: string, valor: number): string {
     return `
     <div class="transacao-container">
-      <button class="deleta-btn ${contador}">x</button>
+      <button class="deleta-btn">x</button>
       <section class="${valor > 0 ? "transacao-pos" : "transacao-neg"}">
         <p>${nome}</p>
         <p class="valor-transacao">R$ ${valor}</p>
