@@ -4,13 +4,17 @@ export class RemoveElemento {
     constructor() {
         this.atualizarSaldo = new AtualizarSaldo();
         this.placeholder = new PlaceholderHistorico();
-        this.novoItem = document.querySelector(".transacao-container");
+        this.novoItem = document.querySelectorAll(".deleta-btn");
     }
-    removerItem(entrada) {
-        this.novoItem.remove();
-        this.removerArray(entrada);
-        this.atualizarSaldo.atualiza(entrada);
-        console.log(entrada);
+    removerItem(lista, divBotao) {
+        this.novoItem.forEach(elemento => {
+            if (elemento == divBotao) {
+                elemento.parentElement.remove();
+            }
+            ;
+        });
+        this.removerArray(lista);
+        this.atualizarSaldo.atualiza(lista);
         this.placeholder.definePlaceholder();
     }
     removerArray(entrada) {

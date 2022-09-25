@@ -3,27 +3,30 @@ import { NovaTransacao } from "../interfaces/transacao-bloco.js";
 import { PlaceholderHistorico } from "./historico-placeholder.js";
 
 export class RemoveElemento {
-  private novoItem: HTMLElement;
+  private novoItem;
   private atualizarSaldo = new AtualizarSaldo();
   private placeholder = new PlaceholderHistorico();
 
   constructor() {
-    this.novoItem = document.querySelector(".transacao-container");
+    this.novoItem = document.querySelectorAll(".deleta-btn");
   }
 
-  public removerItem(entrada: Array<any>) {
-    this.novoItem.remove();
+  public removerItem(lista: Array<any>, divBotao: Element) {
+    this.novoItem.forEach(elemento => {
+      
+      if(elemento  == divBotao) {
+        elemento.parentElement.remove()
+      };
+    })
 
-    this.removerArray(entrada);
+    this.removerArray(lista);    
 
-    this.atualizarSaldo.atualiza(entrada);
-
-    console.log(entrada);
-
+    this.atualizarSaldo.atualiza(lista);
     this.placeholder.definePlaceholder();
   }
 
   private removerArray(entrada: Array<NovaTransacao>) {
+      
     entrada.forEach((elemento) => {
       entrada.splice(elemento.id, 1);
     });

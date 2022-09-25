@@ -3,9 +3,9 @@ export class Transacao {
         this.transacoes = [];
     }
     adicionaNaLista(id, nome, valor) {
-        const transacao = { id, nome, valor };
-        this.transacoes.push(transacao);
-        console.log(transacao);
+        this.transacao = { id, nome, valor };
+        this.transacoes.push(this.transacao);
+        console.log(this.transacao);
         console.log(this.transacoes);
         return this.transacoes;
     }

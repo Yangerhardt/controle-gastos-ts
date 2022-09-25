@@ -20,6 +20,9 @@ form.addEventListener("submit", (event) => {
   event.preventDefault();
   placeholderHistorico.innerHTML = "";
 
+  if (transacoes.length == 0) {
+    contador = 0
+  }
   novoElemento.adicionaTransacao(nome.value, parseFloat(valor.value), contador++);
 
   transacoes = transacao.adicionaNaLista(
@@ -33,16 +36,19 @@ form.addEventListener("submit", (event) => {
 
   // Aqui começa o problema de não conseguir excluir transações além da primeira
 
-  const deletaImagem = document.getElementsByClassName("deleta-btn");
-
-  console.log(deletaImagem);
-
-  /*   const removerElemento = new RemoveElemento();
-  deletaImagem[id-1].addEventListener("click", () => {
-    removerElemento.removerItem(transacoes)
+  const deletaImagem = document.querySelectorAll(".deleta-btn");
+  
+  const removerElemento = new RemoveElemento()
+  deletaImagem.forEach(elemento => elemento.addEventListener("click", () => {
+    removerElemento.removerItem(transacoes, elemento)
+    
     if (transacoes.length == 0) {
       id = 0
     }
-  }
-  ); */
+  }))
+
+/*     const removerElemento = new RemoveElemento();
+  deletaImagem.addEventListener("click", () => {
+    removerElemento.removerItem(transacoes)
+  }); */
 });
