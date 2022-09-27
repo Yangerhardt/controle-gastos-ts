@@ -17,6 +17,6 @@ export class AtualizarSaldo {
     document.querySelector(".saldo-num").innerHTML = `R$ ${this.saldoFinal}`;
     document.querySelector(".receita").innerHTML = `R$ ${this.receitaFinal}`;
     document.querySelector(".gasto").innerHTML = `R$ ${this.gastoFinal}`;
-/*     localStorage.setItem("itens", JSON.stringify(entrada)); */
+    localStorage.setItem("itens", JSON.stringify(entrada));
   }
 }

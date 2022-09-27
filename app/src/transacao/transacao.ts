@@ -8,9 +8,6 @@ export class Transacao {
     this.transacao = {id, nome, valor}
     this.transacoes.push(this.transacao);
     
-    console.log(this.transacao);
-    console.log(this.transacoes);    
-    
     return this.transacoes;
   }
 }

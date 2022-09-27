@@ -5,11 +5,8 @@ export class PlaceholderHistorico {
         this.insertTransacoes = document.querySelector(".insert-transacao");
     }
     definePlaceholder() {
-        if (this.insertTransacoes.childElementCount == 0) {
-            this.placeholderHistorico.innerHTML = "Não há transações";
-        }
-        else {
-            this.placeholderHistorico.innerHTML = "";
-        }
+        this.insertTransacoes.childElementCount == 0
+            ? (this.placeholderHistorico.innerHTML = "Não há transações")
+            : (this.placeholderHistorico.innerHTML = "");
     }
 }
