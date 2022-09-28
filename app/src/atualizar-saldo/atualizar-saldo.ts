@@ -4,7 +4,7 @@ export class AtualizarSaldo {
   private gastoFinal: number = 0;
 
 
-  atualiza(entrada: any[]) {
+  public atualiza(entrada: any[]) {
     entrada.forEach((elemento) => {
       this.saldoFinal += parseFloat(elemento.valor);
       if (elemento.valor > 0) {

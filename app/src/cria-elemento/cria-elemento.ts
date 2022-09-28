@@ -5,10 +5,7 @@ export class CriaElemento {
     this.historico = document.querySelector(".insert-transacao");
   }
 
-  public adicionaTransacao(
-    nome: string,
-    valor: number,
-  ): string {
+  public adicionaTransacao(nome: string, valor: number): string {
     return (this.historico.innerHTML += this.template(nome, valor));
   }
 

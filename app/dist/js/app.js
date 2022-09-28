@@ -10,10 +10,11 @@ let valor = document.querySelector("#valor");
 const novoElemento = new CriaElemento();
 const transacao = new Transacao();
 const atualizaSaldo = new AtualizarSaldo();
-const placeholderHistorico = new PlaceholderHistorico;
+const placeholderHistorico = new PlaceholderHistorico();
 let id = 0;
 transacoes.forEach((transacao) => {
     novoElemento.adicionaTransacao(transacao.nome, transacao.valor);
+    RemoverElemento();
 });
 atualizaSaldo.atualiza(transacoes);
 console.log(transacoes);
