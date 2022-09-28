@@ -22,7 +22,5 @@ export class RemoveElemento {
     this.atualizarSaldo = new AtualizarSaldo();
     this.atualizarSaldo.atualiza(lista);
     this.placeholder.definePlaceholder();
-    console.log(lista);
-    
   }
 }

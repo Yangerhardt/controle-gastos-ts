@@ -3,10 +3,12 @@ import { CriaElemento } from "./cria-elemento/cria-elemento.js";
 import { PlaceholderHistorico } from "./remove-elemento/historico-placeholder.js";
 import { RemoveElemento } from "./remove-elemento/remove-elemento.js";
 import { Transacao } from "./transacao/transacao.js";
+import { ValidaTransacao } from "./valida-transacao/valida-transacao.js";
 let transacoes = JSON.parse(localStorage.getItem("itens")) || [];
 const form = document.querySelector(".form");
 let nome = document.querySelector("#nome");
 let valor = document.querySelector("#valor");
+let erro = document.querySelector(".erro");
 const novoElemento = new CriaElemento();
 const transacao = new Transacao();
 const atualizaSaldo = new AtualizarSaldo();
@@ -17,13 +19,21 @@ transacoes.forEach((transacao) => {
     RemoverElemento();
 });
 atualizaSaldo.atualiza(transacoes);
-console.log(transacoes);
 placeholderHistorico.definePlaceholder();
 form.addEventListener("submit", (event) => {
     event.preventDefault();
-    AdicionarTransacao();
-    placeholderHistorico.definePlaceholder();
-    console.log(transacoes);
+    if (ValidaTransacao.validarTransacao(valor.value)) {
+        erro.innerHTML = "Valor inválido";
+    }
+    else {
+        erro.innerHTML = "";
+        if (valor.value.indexOf(",") > 0) {
+            const valorCorreto = valor.value.replace(",", ".");
+            valor.value = valorCorreto;
+        }
+        AdicionarTransacao();
+        placeholderHistorico.definePlaceholder();
+    }
 });
 function AdicionarTransacao() {
     novoElemento.adicionaTransacao(nome.value, parseFloat(valor.value));
