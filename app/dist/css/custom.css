@@ -39,7 +39,6 @@ h1::after {
   font-weight: 500;
   margin-bottom: 0;
   text-transform: uppercase;
-  color: var(--corCentral);
 }
 
 .ganho-gasto {
@@ -90,7 +89,7 @@ h1::after {
   border: none;
   cursor: pointer;
   margin: 10px;
-  background-color: #D7263D;
+  background-color: var(--transacaoNegativa);
   color: white;
 }
 
@@ -142,7 +141,7 @@ form h3 {
 
 .campo-texto input {
   padding: 10px 120px 10px 10px;
-  width: 200PX;
+  width: 200px;
   border: none;
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.15);
 }
@@ -158,7 +157,7 @@ form h3 {
 
 .botao {
   border: none;
-  margin: 40px;
+  margin-top: 40px;
   background-color: var(--corCentral);
   color: #FFF;
   width: 330px;
@@ -181,7 +180,7 @@ footer {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  background-color: var(--corCentral);
+  background: linear-gradient(var(--backgroundColor), var(--corCentral));;
   height: 100px;
   margin-top: 100px;
 }
@@ -205,5 +204,23 @@ footer {
   }
   to {
     opacity: 1;
+  }
+}
+
+@media (max-width: 450px) {
+  .campo-texto input {
+    width: 160px;
+  }
+  .botao {
+    width: 240px;
+  }
+  section .transacao-pos, section .transacao-neg {
+    width: 260px;
+  }
+}
+
+@media (max-width: 620px) {
+  section .transacao-pos, section .transacao-neg {
+    width: 380px;
   }
 }
