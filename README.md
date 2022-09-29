@@ -11,7 +11,10 @@ Sistema criado para monitorar transações e agir como um registro de transaçõ
 
 ## Modo de uso
 
-Baixe o repositório, abra-o em seu editor de texto e, no terminal, rode o código <strong><i>npm run start</i></strong>. Uma maneira alternativa é entrando nesse [link](https://yangerhardt.github.io/controle-gastos-ts/app/dist/index.html)
+Baixe o repositório, abra-o em seu editor de texto e, no terminal, rode a sequência de códigos
+ - ***npm install***
+ - ***npm run start***
+> Uma maneira alternativa é entrando nesse [link](https://yangerhardt.github.io/controle-gastos-ts/app/dist/index.html)
 
 
 ## Extras
